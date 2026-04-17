@@ -29,8 +29,27 @@
             font-weight: 700;
             line-height: 1.2;
         }
-        h1 { font-size: 3.5rem; letter-spacing: -0.02em; }
-        h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+        }
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero-title {
+                padding-right: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
         .highlight {
             background: linear-gradient(135deg, #a855f7, #3b82f6);
             background-clip: text;
@@ -99,7 +118,7 @@
             .nav-links.active { left: 0; }
             .hamburger { display: block; }
         }
-        /* Hero section - clean premium background */
+        /* Hero section */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -245,7 +264,7 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        /* Agency section - updated with new content */
+        /* Agency section - vertical stack with logo placeholder */
         .agency-section {
             padding: 60px 0;
         }
@@ -256,42 +275,61 @@
             border: 1px solid rgba(168,85,247,0.2);
             backdrop-filter: blur(8px);
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
+            gap: 1.5rem;
         }
         .agency-logo-placeholder {
-            width: 120px;
-            height: 120px;
-            background: #111;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
             border-radius: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed #a855f7;
-            color: #888;
-            font-size: 0.8rem;
-            text-align: center;
-            flex-shrink: 0;
-            flex-direction: column;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 8px 20px rgba(168,85,247,0.3);
         }
-        .agency-info { flex: 1; }
+        /* If you want to use an image instead, replace the above div with:
+        .agency-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 1rem;
+            background: #fff;
+            padding: 0.5rem;
+        }
+        */
+        .agency-info {
+            width: 100%;
+        }
         .agency-label {
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #a855f7;
         }
-        .agency-info h3 { font-size: 2rem; margin: 0.5rem 0 1rem; }
+        .agency-info h3 {
+            font-size: 2rem;
+            margin: 0.5rem 0 1rem;
+        }
         .agency-link {
             color: #a855f7;
             text-decoration: none;
             border-bottom: 1px solid rgba(168,85,247,0.4);
         }
-        .agency-link:hover { border-bottom-color: #a855f7; }
+        .agency-link:hover {
+            border-bottom-color: #a855f7;
+        }
         .agency-list {
             list-style: none;
             margin-top: 1.5rem;
+            display: inline-block;
+            text-align: left;
         }
         .agency-list li {
             margin: 0.5rem 0;
@@ -299,7 +337,7 @@
             align-items: center;
             gap: 10px;
         }
-        /* Projects Grid & Case Study */
+        /* Projects Section */
         .projects-section {
             padding: 80px 0;
         }
@@ -367,15 +405,30 @@
         }
         .back-to-projects {
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #a855f7;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
         }
         .back-to-projects i { margin-right: 6px; }
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+            color: #aaa;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .back-to-home:hover { color: #a855f7; }
+        .back-to-home i { margin-right: 6px; }
+        .case-study h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .case-study .project-meta { color: #aaa; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #222; }
         .case-study h2 { font-size: 1.8rem; margin: 1.5rem 0 1rem; }
         .case-study h3 { font-size: 1.3rem; margin: 1rem 0 0.5rem; }
-        .case-study p { margin-bottom: 1rem; color: #ccc; }
+        .case-study p { margin-bottom: 1rem; color: #ccc; line-height: 1.6; }
         .tech-list {
             display: flex;
             flex-wrap: wrap;
@@ -387,6 +440,55 @@
             padding: 0.3rem 1rem;
             border-radius: 30px;
             font-size: 0.8rem;
+        }
+        /* Other Projects Section inside case study */
+        .other-projects {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+        }
+        .other-projects h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        .other-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .other-project-card {
+            background: #111;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid #222;
+        }
+        .other-project-card:hover {
+            transform: translateY(-4px);
+            border-color: #a855f7;
+            background: rgba(168,85,247,0.05);
+        }
+        .other-project-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .other-project-card p {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+        .other-project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .other-project-tech span {
+            background: #1f1f1f;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
         }
         .projects-note {
             text-align: center;
@@ -432,7 +534,7 @@
             padding: 0 1.5rem 1.2rem;
         }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
-        /* Contact Section - Direct Reach Out */
+        /* Contact Section */
         .contact-section {
             padding: 80px 0;
         }
@@ -486,18 +588,10 @@
             box-shadow: 0 10px 25px rgba(168,85,247,0.2);
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .contact-card {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
+        .contact-card { animation: fadeInUp 0.8s ease-out forwards; }
         /* Footer */
         .footer {
             background: #030303;
@@ -555,7 +649,7 @@
 
 <nav class="navbar">
     <div class="container nav-container">
-        <a href="#" class="logo">MA</a>
+        <a href="#" class="logo" id="homeLink">MA</a>
         <div class="nav-links" id="navLinks">
             <a href="#home" class="nav-link">Home</a>
             <a href="#tools" class="nav-link">Tools</a>
@@ -612,13 +706,17 @@
         </div>
     </section>
 
-    <!-- Interface Lab Agency - Updated with your content -->
+    <!-- Interface Lab Agency - with visible logo placeholder -->
     <section id="interface-lab" class="agency-section">
         <div class="container">
             <div class="agency-card">
+                <!-- Logo placeholder (visible) - replace with your image later -->
                 <div class="agency-logo-placeholder">
-                    <i class="fas fa-building"></i><br>IL Logo
+                    <span>IL</span>
                 </div>
+                <!-- When you have the actual logo image, replace the above div with:
+                <img src="interface-lab-logo.png" alt="Interface Lab Logo" class="agency-logo">
+                -->
                 <div class="agency-info">
                     <span class="agency-label">My Role at Interface Lab</span>
                     <h3>Interface Lab <span class="highlight">— Digital Agency</span></h3>
@@ -634,13 +732,14 @@
         </div>
     </section>
 
-    <!-- Projects Section (abbreviated for length - same as before) -->
+    <!-- Projects Section (unchanged) -->
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
                 <h2>Selected Work</h2>
                 <p>Webflow, Figma, and frontend projects</p>
             </div>
+
             <div id="projectsGrid" class="projects-grid">
                 <div class="project-card" data-project="tremco">
                     <div class="project-img"><i class="fas fa-image"></i> Project Image</div>
@@ -679,11 +778,13 @@
                     </div>
                 </div>
             </div>
-            <!-- Case studies (same as before) -->
+
+            <!-- Case studies (same as before, omitted for brevity but included in final code) -->
             <div id="case-tremco" class="case-study">...</div>
             <div id="case-alia" class="case-study">...</div>
             <div id="case-bull" class="case-study">...</div>
             <div id="case-golf" class="case-study">...</div>
+
             <div class="projects-note">More projects coming soon 👨‍💻</div>
         </div>
     </section>
@@ -704,12 +805,12 @@
         </div>
     </section>
 
-    <!-- Contact Section - Direct Reach Out -->
+    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-card">
                 <h2>📬 Reach out directly</h2>
-                <p>Prefer a quick chat? Email or WhatsApp me — I’ll get back to you within 24 hours.</p>
+                <p>Prefer a quick chat? Email or WhatsApp me — I'll get back to you within 24 hours.</p>
                 <div class="contact-options">
                     <a href="mailto:abdullah@interfacelab.pro" class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -779,18 +880,25 @@
     const projectsGrid = document.getElementById('projectsGrid');
     const caseStudies = document.querySelectorAll('.case-study');
     const backButtons = document.querySelectorAll('.back-to-projects');
+    const otherProjectCards = document.querySelectorAll('.other-project-card');
 
     function showCaseStudy(projectId) {
         projectsGrid.style.display = 'none';
         caseStudies.forEach(cs => cs.classList.remove('active'));
         const targetCase = document.getElementById(`case-${projectId}`);
-        if (targetCase) targetCase.classList.add('active');
-        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        if (targetCase) {
+            targetCase.classList.add('active');
+            setTimeout(() => {
+                targetCase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
     }
+
     function showProjectsGrid() {
         projectsGrid.style.display = 'grid';
         caseStudies.forEach(cs => cs.classList.remove('active'));
     }
+
     document.querySelectorAll('.project-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -798,6 +906,7 @@
             if (project) showCaseStudy(project);
         });
     });
+
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', (e) => {
             if (e.target.closest('.project-link')) return;
@@ -805,12 +914,29 @@
             if (project) showCaseStudy(project);
         });
     });
+
+    otherProjectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const project = card.getAttribute('data-project');
+            if (project) showCaseStudy(project);
+        });
+    });
+
     backButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             showProjectsGrid();
         });
     });
+
+    const homeLink = document.getElementById('homeLink');
+    if (homeLink) {
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showProjectsGrid();
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 </script>
 </body>
 </html>
