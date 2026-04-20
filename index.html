@@ -23,17 +23,21 @@
             line-height: 1.5;
             overflow-x: hidden;
         }
-        /* Container - consistent width and horizontal padding */
+        /* Container - consistent width with generous side padding for breathing room */
         .container {
             max-width: 80rem; /* 1280px */
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
         @media (max-width: 768px) {
-            .container { padding: 0 1.25rem; }
+            .container {
+                padding: 0 1.5rem;
+            }
         }
         @media (max-width: 480px) {
-            .container { padding: 0 1rem; }
+            .container {
+                padding: 0 1rem;
+            }
         }
         /* Typography */
         h1, h2, h3 {
@@ -57,7 +61,7 @@
             -webkit-background-clip: text;
             color: transparent;
         }
-        /* Navbar */
+        /* Navbar - full width with same horizontal padding */
         .navbar {
             position: fixed;
             top: 0;
@@ -71,12 +75,16 @@
         .nav-container {
             max-width: 80rem;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        @media (max-width: 768px) { .nav-container { padding: 0 1.25rem; } }
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
         .logo {
             font-size: 1.8rem;
             font-weight: 800;
@@ -229,7 +237,7 @@
             color: #aaa;
             font-size: 1.1rem;
         }
-        /* Tools Marquee - consistent spacing */
+        /* Tools Marquee */
         .tools-section {
             padding: 5rem 0;
         }
@@ -700,7 +708,7 @@
         </div>
     </section>
 
-    <!-- Tools Marquee -->
+    <!-- Tools Marquee (JavaScript powered, smooth) -->
     <section id="tools" class="tools-section">
         <div class="container">
             <div class="section-header">
