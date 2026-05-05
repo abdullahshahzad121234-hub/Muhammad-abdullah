@@ -199,18 +199,19 @@
             0% { transform: translate(0, 0) rotate(0deg); opacity: 0.15; }
             100% { transform: translate(30px, -30px) rotate(10deg); opacity: 0.4; }
         }
-        .floating-icon:nth-child(1) { top: 10%; left: 2%; width: 48px; height: 48px; animation-duration: 14s; }
-        .floating-icon:nth-child(2) { top: 60%; left: 12%; width: 52px; height: 52px; animation-duration: 16s; }
-        .floating-icon:nth-child(3) { top: 25%; left: 38%; width: 42px; height: 42px; animation-duration: 13s; }
-        .floating-icon:nth-child(4) { top: 70%; left: 70%; width: 50px; height: 50px; animation-duration: 15s; }
-        .floating-icon:nth-child(5) { top: 40%; left: 88%; width: 44px; height: 44px; animation-duration: 14s; }
+        /* NEW POSITIONS - only changed here */
+        .floating-icon:nth-child(1) { top: 15%; left: 3%; width: 48px; height: 48px; animation-duration: 14s; }
+        .floating-icon:nth-child(2) { top: 50%; left: 12%; width: 52px; height: 52px; animation-duration: 16s; }
+        .floating-icon:nth-child(3) { top: 30%; left: 45%; width: 42px; height: 42px; animation-duration: 13s; }
+        .floating-icon:nth-child(4) { top: 75%; left: 62%; width: 50px; height: 50px; animation-duration: 15s; }
+        .floating-icon:nth-child(5) { top: 20%; left: 85%; width: 44px; height: 44px; animation-duration: 14s; }
         @media (max-width: 768px) {
             .floating-icon { opacity: 0.2; }
-            .floating-icon:nth-child(1) { width: 32px; height: 32px; }
-            .floating-icon:nth-child(2) { width: 36px; height: 36px; }
-            .floating-icon:nth-child(3) { width: 30px; height: 30px; }
-            .floating-icon:nth-child(4) { width: 34px; height: 34px; }
-            .floating-icon:nth-child(5) { width: 32px; height: 32px; }
+            .floating-icon:nth-child(1) { width: 32px; height: 32px; top: 12%; left: 2%; }
+            .floating-icon:nth-child(2) { width: 36px; height: 36px; top: 55%; left: 10%; }
+            .floating-icon:nth-child(3) { width: 30px; height: 30px; top: 28%; left: 40%; }
+            .floating-icon:nth-child(4) { width: 34px; height: 34px; top: 70%; left: 55%; }
+            .floating-icon:nth-child(5) { width: 32px; height: 32px; top: 18%; left: 80%; }
         }
         @media (max-width: 480px) { .floating-icon { display: none; } }
 
